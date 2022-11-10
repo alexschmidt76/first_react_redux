@@ -3,12 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, incrementByAmount } from "./features/counterSlice";
 
 export default function Counter() {
-    // call useSelector to grab the current value of our state variable
-    // from the store, and assign it to a variable named "count"
-    const count = useSelector((state) => state.value);
-    // and include the useDispatch hook...
+    const count = useSelector((state) => state.counter.value);
     const dispatch = useDispatch();
-    // state for custom amount
     const [ input, setInput ] = useState(0);
 
     const byAmountSubmit = (e) => {
@@ -18,6 +14,7 @@ export default function Counter() {
 
     return (
         <div>
+            <h1>Counter</h1>
             <h1>
                 {count}
             </h1>
