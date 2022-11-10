@@ -9,13 +9,13 @@ export const todoSlice = createSlice({
     initialState,
     reducers: {
         addTodo: (state, action) => {
-            return { value: [ ...state.value, action.payload ] };
+            return { items: [ ...state.items, action.payload ] };
         },
         clearTodos: (state) => {
-            return { value: [] };
+            return { items: [] };
         },
         removeTodo: (state, action) => {
-            return { value: state.value.slice(action.payload, 1) };
+            state.items.splice(action.payload, 1);
         }
     }
 })
